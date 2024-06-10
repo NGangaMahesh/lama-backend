@@ -4,7 +4,8 @@ import userModel from '../models/userModels.js';
 
 const addEpisode = async (req, res) => {
     try {
-        const { name, link, projectId, userId } = req.body;
+        const {projectId} = req.query
+        const { name, link, userId } = req.body;
 
         // Step 1: Retrieve the User Document
         const userData = await userModel.findById(userId);
@@ -68,7 +69,8 @@ const addEpisode = async (req, res) => {
 
 const updateTranscript = async (req, res) => {
     try {
-        const { projectId, episodeId, userId, transcript } = req.body;
+        const {projectId} = req.query
+        const { episodeId, userId, transcript } = req.body;
 
         // Step 1: Retrieve the User Document
         const userData = await userModel.findById(userId);
@@ -134,7 +136,8 @@ const getEpisodes = async (req, res) => {
 
 const deleteEpisode = async (req, res) => {
     try {
-        const { projectId, episodeId, userId } = req.body;
+        const {projectId} = req.query
+        const { episodeId, userId } = req.body;
 
         // Step 1: Retrieve the User Document
         const userData = await userModel.findById(userId);
