@@ -105,7 +105,9 @@ const updateTranscript = async (req, res) => {
 
 const getEpisodes = async (req, res) => {
     try {
-        const { projectId, userId } = req.body;
+        const { projectId } = req.query;
+        const { userId } = req.body;
+
 
         // Step 1: Retrieve the User Document
         const userData = await userModel.findById(userId);
