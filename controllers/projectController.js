@@ -45,6 +45,7 @@ const getProjects = async (req, res) => {
         }
 
         const projectList = (user.projectData || []).map((project) => ({
+            id: project._id,
             name: project.name,
             episodes: project.episodes ? project.episodes.length : 0,
             updatedAt: project.updatedAt,
